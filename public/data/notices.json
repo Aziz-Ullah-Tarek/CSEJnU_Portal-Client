@@ -1,0 +1,36 @@
+{
+  "notices": [
+    {
+      "id": 1,
+      "title": "Spring 2026 Registration Open",
+      "description": "Online registration starts December 1, 2025.",
+      "date": "2025-11-01",
+      "link": "#",
+      "isNew": true
+    },
+    {
+      "id": 2,
+      "title": "CSE Fest 2026",
+      "description": "Annual tech fest on January 15-17, 2026.",
+      "date": "2025-10-28",
+      "link": "#",
+      "isNew": true
+    },
+    {
+      "id": 3,
+      "title": "AI/ML Workshop",
+      "description": "3-day workshop from November 20-22, 2025.",
+      "date": "2025-10-25",
+      "link": "#",
+      "isNew": false
+    },
+    {
+      "id": 4,
+      "title": "Final Exam Schedule",
+      "description": "Fall 2025 exam routine published.",
+      "date": "2025-10-20",
+      "link": "#",
+      "isNew": false
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "url": "https://i.ibb.co.com/rf5VjHN9/110.jpg",
+      "alt": "University Campus",
+      "title": "Jagannath University Campus"
+    },
+    {
+      "id": 2,
+      "url": "https://i.ibb.co.com/fYPzFhcC/167.jpg",
+      "alt": "Computer Lab",
+      "title": "Modern Computer Lab"
+    },
+    {
+      "id": 3,
+      "url": "https://i.ibb.co.com/6Jsjs9fC/hqdefault.jpg",
+      "alt": "Library",
+      "title": "University Library"
+    },
+    {
+      "id": 4,
+      "url": "https://i.ibb.co.com/MydX4MvG/1584474638742.jpg",
+      "alt": "Classroom",
+      "title": "Smart Classroom"
+    },
+    {
+      "id": 5,
+      "url": "https://i.ibb.co.com/RppW2K0w/92.jpg",
+      "alt": "Students",
+      "title": "CSE Students"
+    },
+    {
+      "id": 6,
+      "url": "https://i.ibb.co.com/rf5VjHN9/110.jpg",
+      "alt": "Seminar",
+      "title": "Department Seminar"
+    }
+  ]
+}

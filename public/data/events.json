@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "National Programming Contest 2026",
+      "description": "Annual inter-university programming contest organized by CSE Department. Teams from various universities across Bangladesh will participate.",
+      "date": "2026-01-15",
+      "time": "10:00 AM - 5:00 PM",
+      "venue": "CSE Department Auditorium",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
+      "category": "Competition",
+      "isUpcoming": true
+    },
+    {
+      "id": 2,
+      "title": "AI & ML Workshop",
+      "description": "3-day intensive workshop on Artificial Intelligence and Machine Learning with hands-on projects and industry expert sessions.",
+      "date": "2025-11-20",
+      "time": "9:00 AM - 4:00 PM",
+      "venue": "Computer Lab - Room 301",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
+      "category": "Workshop",
+      "isUpcoming": true
+    },
+    {
+      "id": 3,
+      "title": "Tech Talk: Career in Tech Industry",
+      "description": "Industry professionals sharing insights about career opportunities in tech sector and tips for students.",
+      "date": "2025-12-05",
+      "time": "3:00 PM - 5:00 PM",
+      "venue": "Main Auditorium",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+      "category": "Seminar",
+      "isUpcoming": true
+    },
+    {
+      "id": 4,
+      "title": "CSE Freshers' Welcome",
+      "description": "Welcome ceremony for new students of CSE Department with cultural programs and orientation sessions.",
+      "date": "2025-10-10",
+      "time": "10:00 AM - 2:00 PM",
+      "venue": "University Auditorium",
+      "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop",
+      "category": "Cultural",
+      "isUpcoming": false
+    }
+  ]
+}
