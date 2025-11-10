@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 const Navber = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showNoticeDropdown, setShowNoticeDropdown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useContext(AuthContext);
@@ -64,6 +65,27 @@ const Navber = () => {
             <Link to="/faculty" className={`hover:opacity-80 transition ${isActive('/faculty') ? 'font-bold' : ''}`}>
               Faculty
             </Link>
+            
+            {/* Notices Dropdown */}
+            <div className="relative group">
+              <button className="hover:opacity-80 transition flex items-center gap-1">
+                Notices
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <Link to="/notices" className="block px-4 py-2 hover:bg-green-100 rounded-t-lg">
+                  All Notices
+                </Link>
+                {user && (
+                  <Link to="/manage-notices" className="block px-4 py-2 hover:bg-green-100 rounded-b-lg">
+                    Manage Notices
+                  </Link>
+                )}
+              </div>
+            </div>
+
             <Link to="/events" className={`hover:opacity-80 transition ${isActive('/events') ? 'font-bold' : ''}`}>
               Events
             </Link>
@@ -166,6 +188,32 @@ const Navber = () => {
             <Link to="/faculty" className="block py-2 hover:bg-white/10 rounded px-2" onClick={() => setIsOpen(false)}>
               Faculty
             </Link>
+            
+            {/* Notices Dropdown Mobile */}
+            <div>
+              <button 
+                onClick={() => setShowNoticeDropdown(!showNoticeDropdown)}
+                className="w-full text-left py-2 hover:bg-white/10 rounded px-2 flex items-center justify-between"
+              >
+                Notices
+                <svg className={`w-4 h-4 transition-transform ${showNoticeDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {showNoticeDropdown && (
+                <div className="pl-4 space-y-1 mt-1">
+                  <Link to="/notices" className="block py-2 hover:bg-white/10 rounded px-2" onClick={() => setIsOpen(false)}>
+                    All Notices
+                  </Link>
+                  {user && (
+                    <Link to="/manage-notices" className="block py-2 hover:bg-white/10 rounded px-2" onClick={() => setIsOpen(false)}>
+                      Manage Notices
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
+
             <Link to="/events" className="block py-2 hover:bg-white/10 rounded px-2" onClick={() => setIsOpen(false)}>
               Events
             </Link>
