@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
-import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash, FaGraduationCap } from 'react-icons/fa';
 
 const StudentLogin = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -51,34 +51,34 @@ const StudentLogin = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-lg w-full">
-                <div className="bg-white rounded-3xl shadow-2xl p-10 sm:p-12">
-                    {/* Title */}
-                    <div className="text-center mb-10">
-                        <div className="flex items-center justify-center mb-4">
-                            <span className="text-5xl">🌿</span>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full">
+                <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-green-100">
+                    {/* Header */}
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl mb-4 shadow-lg">
+                            <FaGraduationCap className="text-white text-3xl" />
                         </div>
-                        <h2 className="text-4xl font-bold text-green-700 mb-3">
-                            Welcome Back
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                            Student Login
                         </h2>
-                        <p className="text-gray-600 text-base">
-                            Login to continue your plant journey
+                        <p className="text-gray-600">
+                            JNU CSE Portal - Sign in to continue
                         </p>
                     </div>
 
                     {/* Login Form */}
-                    <form onSubmit={handleLogin} className="space-y-6">
+                    <form onSubmit={handleLogin} className="space-y-5">
                         {/* Email Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-800 mb-2.5">
-                                Email
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                Email Address
                             </label>
                             <input 
                                 type="email" 
                                 name="email"
-                                placeholder="Enter your email"
-                                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition duration-200 text-gray-800"
+                                placeholder="student@jnu.ac.in"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required 
@@ -87,7 +87,7 @@ const StudentLogin = () => {
 
                         {/* Password Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-800 mb-2.5">
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Password
                             </label>
                             <div className="relative">
@@ -95,71 +95,67 @@ const StudentLogin = () => {
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     placeholder="Enter your password"
-                                    className="w-full px-5 py-4 pr-14 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition duration-200 text-gray-800"
+                                    className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                                     required 
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600 transition"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600"
                                 >
-                                    {showPassword ? <FaEyeSlash size={22} /> : <FaEye size={22} />}
+                                    {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                                 </button>
                             </div>
                         </div>
 
-                        {/* Forgot Password Link */}
-                        <div className="text-left">
+                        {/* Forgot Password */}
+                        <div className="flex justify-end">
                             <Link 
                                 to="/forgot-password"
-                                className="text-sm text-green-600 font-semibold hover:text-green-700 hover:underline"
+                                className="text-sm text-green-600 hover:text-green-700 font-medium"
                             >
-                                Forgot password?
+                                Forgot Password?
                             </Link>
                         </div>
 
                         {/* Login Button */}
-                        <div className="mt-8">
-                            <button 
-                                type="submit"
-                                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition duration-300 shadow-lg hover:shadow-xl text-base"
-                            >
-                                Login
-                            </button>
-                        </div>
+                        <button 
+                            type="submit"
+                            className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        >
+                            Sign In
+                        </button>
                     </form>
 
                     {/* Divider */}
-                    <div className="relative my-8">
+                    <div className="relative my-6">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t-2 border-gray-200"></div>
+                            <div className="w-full border-t border-gray-300"></div>
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-4 bg-white text-gray-500 font-medium">OR</span>
+                            <span className="px-3 bg-white text-gray-500">Or continue with</span>
                         </div>
                     </div>
 
-                    {/* Google Login Button */}
+                    {/* Google Login */}
                     <button 
                         onClick={handleGoogleLogin}
-                        className="w-full flex items-center justify-center gap-3 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-4 px-6 rounded-xl transition duration-300"
+                        className="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-3 rounded-lg transition-all duration-300"
                     >
-                        <FaGoogle size={20} />
-                        Continue with Google
+                        <FaGoogle className="text-red-500" size={18} />
+                        Sign in with Google
                     </button>
 
-                    {/* Signup Link */}
-                    <div className="text-center mt-8">
-                        <p className="text-gray-600">
-                            Don't have an account?{' '}
-                            <Link 
-                                to="/register" 
-                                className="text-green-600 font-bold hover:text-green-700 hover:underline"
-                            >
-                                Sign Up
-                            </Link>
-                        </p>
-                    </div>
+                    {/* Sign Up Link */}
+                    <p className="text-center text-gray-600 mt-6 pt-6 border-t border-gray-200">
+                        Don't have an account?{' '}
+                        <Link 
+                            to="/register" 
+                            className="text-green-600 font-semibold hover:text-green-700"
+                        >
+                            Create Account
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@ import Dashboard from '../pages/Dashboard';
 import StudentLogin from '../pages/StudentLogin';
 import Register from '../pages/Register';
 import Admin from '../pages/Admin';
+import Booking from '../pages/Booking';
 
 const routes = [
     {
@@ -27,6 +28,7 @@ const routes = [
             { path: '/events', component: Events, isPrivate: true },
             { path: '/gallery', component: Gallery, isPrivate: true },
             { path: '/contact', component: Contact, isPrivate: true },
+            { path: '/booking', component: Booking, isPrivate: true },
             { path: '/dashboard', component: Dashboard, isPrivate: true },
         ]
     },

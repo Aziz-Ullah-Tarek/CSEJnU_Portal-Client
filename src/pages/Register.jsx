@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
-import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash, FaUserPlus } from 'react-icons/fa';
 
 const Register = () => {
     const { createUser, signInWithGoogle, updateUserProfile } = useContext(AuthContext);
@@ -69,63 +69,62 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-lg w-full">
-                <div className="bg-white rounded-3xl shadow-2xl p-10 sm:p-12">
-                    {/* Title */}
-                    <div className="text-center mb-10">
-                        <div className="flex items-center justify-center mb-4">
-                            <span className="text-5xl">🌱</span>
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 via-emerald-50 to-teal-50 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full">
+                <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-green-100">
+                    {/* Header */}
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-green-500 to-emerald-600 rounded-xl mb-4 shadow-lg">
+                            <FaUserPlus className="text-white text-2xl" />
                         </div>
-                        <h2 className="text-4xl font-bold text-green-700 mb-3">
-                            Join GreenNest
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                            Create Account
                         </h2>
-                        <p className="text-gray-600 text-base">
-                            Create your account to start your plant journey
+                        <p className="text-gray-600">
+                            Join JNU CSE Portal
                         </p>
                     </div>
 
                     {/* Register Form */}
-                    <form onSubmit={handleRegister} className="space-y-6">
+                    <form onSubmit={handleRegister} className="space-y-4">
                         {/* Name Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-800 mb-2.5">
-                                Name
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                Full Name
                             </label>
-                            
                             <input 
                                 type="text" 
                                 name="name"
                                 placeholder="Enter your full name"
-                                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition duration-200 text-gray-800"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                                 required 
                             />
                         </div>
 
                         {/* Email Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-800 mb-2.5">
-                                Email
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                Email Address
                             </label>
                             <input 
                                 type="email" 
                                 name="email"
-                                placeholder="Enter your email"
-                                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition duration-200 text-gray-800"
+                                placeholder="student@jnu.ac.in"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                                 required 
                             />
                         </div>
 
                         {/* Photo URL Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-800 mb-2.5">
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Photo URL
                             </label>
                             <input 
                                 type="url" 
                                 name="photoURL"
-                                placeholder="Enter your photo URL"
-                                className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition duration-200 text-gray-800"
+                                placeholder="https://example.com/photo.jpg"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
                                 required 
                             />
                         </div>
