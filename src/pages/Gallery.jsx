@@ -229,15 +229,15 @@ const Gallery = () => {
                 )}
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-10">
+                <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {categories.map((category) => (
                         <button
                             key={category}
                             onClick={() => setSelectedCategory(category)}
-                            className={`px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 ${
+                            className={`px-8 py-3 rounded-xl font-bold text-sm transition-all transform hover:scale-105 shadow-md ${
                                 selectedCategory === category 
-                                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg' 
-                                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-purple-300 hover:shadow-md'
+                                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-xl scale-105' 
+                                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg'
                             }`}
                         >
                             {category}
@@ -245,59 +245,59 @@ const Gallery = () => {
                     ))}
                 </div>
 
-                {/* Gallery Grid - Modern Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {/* Gallery Grid - Modern Cards with Better Spacing */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     {filteredItems.map((item) => (
                         <div 
                             key={item._id} 
-                            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
+                            className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-3 border border-gray-100"
                         >
                             {/* Image Container */}
-                            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-50">
+                            <div className="relative h-72 overflow-hidden bg-gradient-to-br from-purple-50 to-indigo-50">
                                 {item.imageUrl ? (
                                     <img 
                                         src={item.imageUrl} 
                                         alt={item.title}
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                         onError={(e) => {
                                             e.target.onerror = null;
-                                            e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                                            e.target.src = 'https://via.placeholder.com/500x400?text=Image+Not+Found';
                                         }}
                                     />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center">
-                                        <div className="text-gray-300 text-7xl">📷</div>
+                                        <div className="text-gray-300 text-8xl">📷</div>
                                     </div>
                                 )}
                                 
                                 {/* Category Badge Overlay */}
-                                <div className="absolute top-3 right-3">
-                                    <span className="px-4 py-2 bg-white/95 backdrop-blur-sm text-purple-700 text-xs font-bold rounded-full shadow-lg">
+                                <div className="absolute top-4 right-4">
+                                    <span className="px-5 py-2 bg-white/95 backdrop-blur-sm text-purple-700 text-sm font-bold rounded-full shadow-xl border border-purple-100">
                                         {item.category}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Card Content */}
-                            <div className="p-5">
-                                <h3 className="font-bold text-gray-800 text-lg mb-2 line-clamp-1 group-hover:text-purple-600 transition-colors">
+                            <div className="p-6">
+                                <h3 className="font-bold text-gray-900 text-xl mb-3 line-clamp-1 group-hover:text-purple-600 transition-colors">
                                     {item.title}
                                 </h3>
                                 
                                 {item.description && (
-                                    <p className="text-sm text-gray-600 mb-3 line-clamp-2 leading-relaxed">
+                                    <p className="text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed">
                                         {item.description}
                                     </p>
                                 )}
                                 
                                 {item.uploadedBy && (
-                                    <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400 flex items-center justify-center text-white text-xs font-bold">
+                                    <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white text-sm font-bold shadow-md">
                                             {item.uploadedBy.charAt(0).toUpperCase()}
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500">Uploaded by</p>
-                                            <p className="text-sm font-semibold text-gray-700">{item.uploadedBy}</p>
+                                            <p className="text-xs text-gray-500 mb-0.5">Uploaded by</p>
+                                            <p className="text-sm font-bold text-gray-800">{item.uploadedBy}</p>
                                         </div>
                                     </div>
                                 )}
