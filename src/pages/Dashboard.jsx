@@ -19,7 +19,7 @@ const Dashboard = () => {
             console.log('Fetching dashboard for email:', user.email);
             // Add timestamp to prevent caching
             const timestamp = new Date().getTime();
-            const response = await fetch(`http://localhost:5000/api/user-dashboard/${user.email}?t=${timestamp}`);
+            const response = await fetch(`https://cse-portal-server.vercel.app/api/user-dashboard/${user.email}?t=${timestamp}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -41,7 +41,7 @@ const Dashboard = () => {
 
     const fetchNotices = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/notices/latest');
+            const response = await fetch(API_ENDPOINTS.noticesLatest);
             const data = await response.json();
             setNotices(data);
         } catch (error) {

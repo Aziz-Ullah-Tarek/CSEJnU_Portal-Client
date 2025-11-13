@@ -14,7 +14,7 @@ const Notices = () => {
 
     const fetchNotices = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/notices');
+            const response = await fetch('https://cse-portal-server.vercel.app/api/notices');
             const data = await response.json();
             setNotices(data);
             setLoading(false);

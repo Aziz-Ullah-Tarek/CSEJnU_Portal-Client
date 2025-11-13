@@ -8,7 +8,7 @@ const Home = () => {
     const [latestNotices, setLatestNotices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/notices/latest')
+        fetch('https://cse-portal-server.vercel.app/api/notices/latest')
             .then(res => res.json())
             .then(data => setLatestNotices(data))
             .catch(err => console.error('Error fetching notices:', err));

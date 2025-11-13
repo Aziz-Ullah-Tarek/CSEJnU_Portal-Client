@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { API_ENDPOINTS } from '../config/api';
 
 const Gallery = () => {
     const { user } = useContext(AuthContext);
@@ -35,7 +36,7 @@ const Gallery = () => {
 
     const fetchGalleryPhotos = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/gallery');
+            const response = await fetch(API_ENDPOINTS.gallery);
             const data = await response.json();
             setGalleryItems(data);
         } catch (error) {
@@ -66,7 +67,7 @@ const Gallery = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/gallery', {
+            const response = await fetch(API_ENDPOINTS.gallery, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { API_ENDPOINTS } from '../config/api';
 
 const Lab = () => {
   const { user } = useContext(AuthContext);
@@ -57,7 +58,7 @@ const Lab = () => {
     if (!user?.email) return;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/lab-bookings/user/${user.email}`);
+      const response = await fetch(API_ENDPOINTS.labBookingsByUser(user.email));
       const data = await response.json();
       setMyBookings(data);
     } catch (error) {
@@ -101,7 +102,7 @@ const Lab = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/lab-bookings', {
+      const response = await fetch(API_ENDPOINTS.labBookings, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

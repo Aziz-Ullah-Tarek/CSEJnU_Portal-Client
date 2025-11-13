@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { API_ENDPOINTS } from '../config/api';
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -22,7 +23,7 @@ const Events = () => {
 
     const fetchEvents = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/events');
+            const response = await fetch(API_ENDPOINTS.events);
             const data = await response.json();
             setEvents(data);
         } catch (error) {
@@ -42,7 +43,7 @@ const Events = () => {
         e.preventDefault();
         
         try {
-            const response = await fetch('http://localhost:5000/api/events', {
+            const response = await fetch(API_ENDPOINTS.events, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

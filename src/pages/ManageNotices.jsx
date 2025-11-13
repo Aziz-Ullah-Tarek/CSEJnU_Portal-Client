@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { API_ENDPOINTS } from '../config/api';
 import { FaPlus, FaEdit, FaTrash, FaSave, FaTimes, FaEye } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +24,7 @@ const ManageNotices = () => {
 
     const fetchNotices = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/notices');
+            const response = await fetch('https://cse-portal-server.vercel.app/api/notices');
             const data = await response.json();
             setNotices(data);
         } catch (error) {
