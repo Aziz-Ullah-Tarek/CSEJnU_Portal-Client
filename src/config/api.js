@@ -1,7 +1,5 @@
-// API Base URL
-export const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://cse-portal-server.vercel.app' 
-  : 'http://localhost:5000';
+// API Base URL - Always use production Vercel URL
+export const API_BASE_URL = 'https://cse-portal-server.vercel.app';
 
 // API Endpoints
 export const API_ENDPOINTS = {
