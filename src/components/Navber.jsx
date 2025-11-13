@@ -11,6 +11,20 @@ const Navber = () => {
   const navigate = useNavigate();
   const { user, logout } = useContext(AuthContext);
 
+  // Debug log
+  React.useEffect(() => {
+    if (user) {
+      console.log('👤 User logged in:', {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        hasPhoto: !!user.photoURL
+      });
+    } else {
+      console.log('❌ No user logged in');
+    }
+  }, [user]);
+
   const isActive = (path) => location.pathname === path;
 
   const handleLogout = () => {
