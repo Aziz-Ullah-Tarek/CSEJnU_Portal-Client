@@ -25,10 +25,30 @@ const Classroom = () => {
   });
 
   const classrooms = [
-    { id: 'CR-601', name: 'Room 601', capacity: 50 },
-    { id: 'CR-721', name: 'Room 721', capacity: 40 },
-    { id: 'CR-VCR', name: 'Video Conference Room', capacity: 30 },
-    { id: 'CR-712', name: 'Room 712', capacity: 60 }
+    { 
+      id: 'CR-601', 
+      name: 'Room 601', 
+      capacity: 50,
+      image: 'https://i.ibb.co.com/1GRtXWHQ/483899558-1477892656520411-8293499244406192577-n.jpg'
+    },
+    { 
+      id: 'CR-721', 
+      name: 'Room 721', 
+      capacity: 40,
+      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop'
+    },
+    { 
+      id: 'CR-VCR', 
+      name: 'Video Conference Room', 
+      capacity: 30,
+      image: 'https://i.ibb.co.com/rGtYQQ2t/167.jpg'
+    },
+    { 
+      id: 'CR-712', 
+      name: 'Room 712', 
+      capacity: 60,
+      image: 'https://i.ibb.co.com/93nM0yNc/482226463-1984357785303126-5317173868815496440-n.jpg'
+    }
   ];
 
   const semesters = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th'];
@@ -279,7 +299,7 @@ const Classroom = () => {
               </h3>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Classroom <span className="text-red-500">*</span>
                   </label>
@@ -297,6 +317,25 @@ const Classroom = () => {
                       </option>
                     ))}
                   </select>
+                  
+                  {/* Classroom Image Preview */}
+                  {formData.classroomId && (
+                    <div className="mt-4 rounded-lg overflow-hidden border-2 border-blue-200">
+                      <img 
+                        src={classrooms.find(r => r.id === formData.classroomId)?.image} 
+                        alt={classrooms.find(r => r.id === formData.classroomId)?.name}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="bg-blue-50 p-3 border-t border-blue-200">
+                        <p className="text-sm font-semibold text-gray-700">
+                          <span className="text-blue-600">Selected:</span> {classrooms.find(r => r.id === formData.classroomId)?.name}
+                        </p>
+                        <p className="text-xs text-gray-600 mt-1">
+                          Capacity: {classrooms.find(r => r.id === formData.classroomId)?.capacity} students
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>

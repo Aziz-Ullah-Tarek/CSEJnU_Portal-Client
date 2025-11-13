@@ -25,10 +25,30 @@ const Lab = () => {
   });
 
   const labs = [
-    { id: 'LAB-301', name: 'Computer Lab 1', capacity: 60 },
-    { id: 'LAB-302', name: 'Computer Lab 2', capacity: 60 },
-    { id: 'LAB-303', name: 'Programming Lab', capacity: 50 },
-    { id: 'LAB-304', name: 'Network Lab', capacity: 40 }
+    { 
+      id: 'LAB-301', 
+      name: 'Computer Lab 1', 
+      capacity: 60,
+      image: 'https://i.ibb.co.com/m5qzq8pB/unnamed.webp'
+    },
+    { 
+      id: 'LAB-302', 
+      name: 'Computer Lab 2', 
+      capacity: 60,
+      image: 'https://i.ibb.co.com/m5qzq8pB/unnamed.webp'
+    },
+    { 
+      id: 'LAB-303', 
+      name: 'Programming Lab', 
+      capacity: 50,
+      image: 'https://i.ibb.co.com/m5qzq8pB/unnamed.webp'
+    },
+    { 
+      id: 'LAB-304', 
+      name: 'Network Lab', 
+      capacity: 40,
+      image: 'https://i.ibb.co.com/m5qzq8pB/unnamed.webp'
+    }
   ];
 
   const semesters = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th'];
@@ -192,7 +212,7 @@ const Lab = () => {
                     name="studentId"
                     value={formData.studentId}
                     onChange={handleChange}
-                    placeholder="e.g., CSE-1901020123"
+                    placeholder="give your id"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-purple-500"
                     required
                   />
@@ -236,7 +256,7 @@ const Lab = () => {
             {/* Teacher Recommendation - Highlighted */}
             <div className="mb-6 bg-amber-50 border border-amber-300 p-4 rounded">
               <h3 className="text-lg font-semibold text-amber-800 mb-3">
-                ⚠️ Teacher Recommendation (Mandatory)
+                Teacher Recommendation (Mandatory)
               </h3>
               
               <div className="grid md:grid-cols-2 gap-4">
@@ -279,7 +299,7 @@ const Lab = () => {
               </h3>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Lab <span className="text-red-500">*</span>
                   </label>
@@ -297,6 +317,25 @@ const Lab = () => {
                       </option>
                     ))}
                   </select>
+                  
+                  {/* Lab Image Preview */}
+                  {formData.labId && (
+                    <div className="mt-4 rounded-lg overflow-hidden border-2 border-purple-200">
+                      <img 
+                        src={labs.find(l => l.id === formData.labId)?.image} 
+                        alt={labs.find(l => l.id === formData.labId)?.name}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="bg-purple-50 p-3 border-t border-purple-200">
+                        <p className="text-sm font-semibold text-gray-700">
+                          <span className="text-purple-600">Selected:</span> {labs.find(l => l.id === formData.labId)?.name}
+                        </p>
+                        <p className="text-xs text-gray-600 mt-1">
+                          Capacity: {labs.find(l => l.id === formData.labId)?.capacity} computers
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>
